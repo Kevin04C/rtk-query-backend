@@ -8,7 +8,7 @@ import { validationCreateUser, validationLoginUser } from '../validations/userVa
 const router = Router()
 
 router.post('/create', validationCreateUser, createUser)
-router.get('/login', validationLoginUser, loginUser)
+router.post('/login', validationLoginUser, loginUser)
 router.get('/renew', validateJWT, renewToken)
 
 export default router
