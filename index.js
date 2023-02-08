@@ -1,5 +1,6 @@
 import express from 'express'
 import * as dotenv from 'dotenv'
+import cors from 'cors'
 import { connectedDb } from './db/database.js'
 import { validateJWT } from './middlewares/validateJWT.js'
 import authRoutes from './routes/User.routes.js'
@@ -13,6 +14,7 @@ connectedDb()
 const PORT = 3000
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 
 app.use('/api/user', authRoutes)
