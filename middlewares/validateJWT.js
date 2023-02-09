@@ -5,7 +5,7 @@ export const validateJWT = (req = request, res = response, next) => {
   const { authorization } = req.headers
 
   if (!authorization) {
-    return res.status(400).json({
+    return res.status(401).json({
       ok: false,
       msg: 'there not token in request'
     })
@@ -13,7 +13,7 @@ export const validateJWT = (req = request, res = response, next) => {
 
   const [bearer, token] = authorization.split(' ')
   if (bearer !== 'Bearer') {
-    return res.status(400).json({
+    return res.status(401).json({
       ok: false,
       msg: 'header authorization invalid'
     })
