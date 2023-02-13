@@ -1,12 +1,16 @@
 import { request, response } from 'express'
+import { Project } from '../models/Project.js'
 import { Task } from '../models/Task.js'
 
 export const getTasksByProject = async (req = request, res = response) => {
   const { id } = req.params
   try {
     const taksProject = await Task.find({ project: id })
+    const project = await Project.findById(id, 'title')
+
     res.json({
       ok: true,
+      project: project.title,
       taks: taksProject
     })
   } catch (error) {
