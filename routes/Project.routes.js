@@ -6,7 +6,7 @@ import { createProjectValidation } from '../validations/projectValidations.js'
 
 const router = Router()
 
-router.get('/', getProjectsByUser)
+router.get('/:id', getProjectsByUser)
 router.post('/', createProjectValidation, createProject)
 router.delete('/:id', deleteProject)
 
