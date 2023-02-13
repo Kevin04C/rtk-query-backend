@@ -9,6 +9,6 @@ const router = Router()
 
 router.post('/create', validationCreateUser, createUser)
 router.post('/login', validationLoginUser, loginUser)
-router.get('/renew', validateJWT, renewToken)
+router.post('/renew', validateJWT, renewToken)
 
 export default router
